@@ -9,31 +9,30 @@ function lwcPlugin() {
 
   console.log("lwcPlugin running...")
 
- 
-
   return {
     name: 'lwc',
 
     async transform(code, id) {
 
-      
-
       console.log("transform running...", id)
 
-      if (!/\.html$/.test(id)) {
+      if (id.includes("node_modules")) {
+        console.log("lwcPlugin skipping node_modules")
         return null;
       }
 
-      if(id.includes("main.js")){
-        return null
-      }
+      // if (!/\.html$/.test(id)) {
+      //   console.log("lwcPlugin early return")
+      //   return null;
+      // }
 
       const jsPath = id.replace(/\.html$/, '.js');
       console.log("jsPath", jsPath)
       const jsCode = readFileSync(resolve(jsPath), 'utf8');
       const { code: transformedCode } = transformSync(jsCode, jsPath, {});
-
-      console.log("compiled", code)
+      //const transformedResult = transformSync(jsCode, jsPath, {});
+      //console.log("transformedResult", transformedResult)
+      console.log("compiled", transformedCode)
 
       return {
         code: transformedCode,
