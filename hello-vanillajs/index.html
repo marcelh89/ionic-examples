@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ionic App</title>
+
+    <base href="/" />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ionic App" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  </head>
+
+  <body>
+    <ion-app>
+      <ion-menu content-id="main-content">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+  
+        <ion-content>
+          <ion-list>
+            <ion-list-header> Navigate </ion-list-header>
+            <ion-menu-toggle auto-hide="false">
+              <ion-item button>
+                <ion-icon slot="start" data-src="home.svg"></ion-icon>
+                <ion-label> Home </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
+  
+      <ion-page class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-toggle>
+                <ion-button>
+                  <ion-icon slot="icon-only" data-src="menu.svg"></ion-icon>
+                </ion-button>
+              </ion-menu-toggle>
+            </ion-buttons>
+            <ion-title>Header</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <h1>Main Content</h1>
+          <p>Click the icon in the top left to toggle the menu.</p>
+        </ion-content>
+      </ion-page>
+    </ion-app>
+    
+
+    <hr />
+    
+    <div id="main"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+
+</html>
+
